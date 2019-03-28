@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { Card, Button, Image, } from 'semantic-ui-react'
-import { Link, } from 'react-router-dom';
+import { Link, withRouter, } from 'react-router-dom';
+
 class FriendCard extends React.Component {
-  state = { posts: [], }
+  state = { posts: [],}
 
   componentDidMount() {
     axios.get(`/api/friends/${this.props.id}/posts`)
@@ -29,13 +30,11 @@ class FriendCard extends React.Component {
           <Card.Description>{status}</Card.Description>
         </Card.Content>
         <Card.Content textAlign="center">
-          <Link to={`/friends/${id}`}>
-            <Button>View Profile</Button>
-          </Link>
+            <Button onClick={ () =>this.props.history.push(`/friends/${id}`)}>View Profile</Button>
         </Card.Content>
       </Card>
     )
   }
 }
-export default FriendCard;
+export default withRouter(FriendCard);
 
