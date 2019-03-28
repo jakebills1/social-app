@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, } from 'semantic-ui-react'
+import { Menu, FormButton, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom';
 import { AuthConsumer, } from '../providers/AuthProvider'
 class Navbar extends React.Component  {
@@ -38,11 +38,16 @@ class Navbar extends React.Component  {
 
   render() {
     return (
-      <Menu>
+      <Menu color="blue" inverted>
         <Menu.Item header>MyFace</Menu.Item>
         <Link to="/">
           <Menu.Item>
             Home
+          </Menu.Item>
+        </Link>
+        <Link to="/friends">
+          <Menu.Item>
+            Friends
           </Menu.Item>
         </Link>
         {this.rightNav()}
