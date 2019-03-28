@@ -7,6 +7,7 @@ import Register from './components/Register'
 import FetchUser from './components/FetchUser'
 import ProtectedRoute from './components/ProtectedRoute';
 import Friends from './components/Friends'
+import ViewProfile from './components/ViewProfile'
 // components
 import { Container, } from 'semantic-ui-react';
 import { Switch, Route, } from 'react-router-dom';
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/friends" component={Friends} />
+          <ProtectedRoute exact path="/friends/:id" component={ViewProfile} />
         </Switch>
       </Container>
     </FetchUser>

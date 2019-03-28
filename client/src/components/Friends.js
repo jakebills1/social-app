@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Image, Button, Header, } from 'semantic-ui-react';
+import { Card, Header, } from 'semantic-ui-react';
 import axios from 'axios';
+import FriendCard from './FriendCard'
 
 class Friends extends React.Component {
   state = { friends: [],}
@@ -11,25 +12,10 @@ class Friends extends React.Component {
   render() {
     return (
       <>
-      <Header as="h1" textAlign="center">Your Friends</Header>
-      <Card.Group itemsPerRow={4}>
-        {this.state.friends.map( friend => {
-          return (
-            <Card key={friend.id}>
-              <Image src={friend.avatar} />
-              <Card.Content>
-                <Card.Header>{friend.name}</Card.Header>
-                <Card.Meta>Network: {friend.category}</Card.Meta>
-              </Card.Content>
-              <Card.Content extra textAlign="center">
-                <Button onClick={() => this.addFriend(friend.id)}>
-                  Add To Friend Group
-                </Button>
-              </Card.Content>
-            </Card>
-          )
-        })}
-      </Card.Group>
+        <Header as="h1" textAlign="center">Your Friends</Header>
+        <Card.Group itemsPerRow={4}>
+          {this.state.friends.map( friend => <FriendCard key={friend.id} {...friend}/> )}
+        </Card.Group>
       </>
     )
   }

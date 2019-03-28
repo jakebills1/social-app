@@ -1,11 +1,11 @@
 import React from 'react';
-import { Menu, FormButton, } from 'semantic-ui-react'
+import { Menu, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom';
 import { AuthConsumer, } from '../providers/AuthProvider'
 class Navbar extends React.Component  {
 
   rightNav = () => {
-    const { auth: { user, handleLogout, }, location, } = this.props;
+    const { auth: { user, handleLogout, }, } = this.props;
 
     if (user) {
       return (
