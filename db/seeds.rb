@@ -5,6 +5,6 @@
     status: [Faker::Movies::HitchhikersGuideToTheGalaxy.quote, Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote, Faker::Movies::BackToTheFuture.quote, 
       Faker::Movies::Lebowski.quote, Faker::Quote.famous_last_words, Faker::TvShows::BojackHorseman.quote].sample)
   10.times do
-    f.posts.create(body: Faker::Lorem.paragraph_by_chars(256))
+    f.posts.create(body: Faker::Lorem.paragraph_by_chars(256), likes: 0)
   end
 end

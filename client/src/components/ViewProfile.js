@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Post from './Post';
 import { withRouter, } from 'react-router-dom';
-import { Image, Header, } from 'semantic-ui-react'
+import { Image, Header, Card, } from 'semantic-ui-react'
 
 class ViewProfile extends React.Component {
   state = { profile: {}, posts: [] }
@@ -16,18 +17,26 @@ class ViewProfile extends React.Component {
         this.setState({posts: res.data, })
       })
   }
+ 
   render() {
     const { profile, posts } =  this.state
     return (
       <div style={{display: "flex"}}>
         <div>
-          <Header as-="h1">{profile.name}</Header>
-          <Image src={profile.avatar} />
+          <Card>
+            <Card.Content>
+              <Header as-="h1">{profile.name}</Header>
+              <Image src={profile.avatar} />
+            </Card.Content>
+            <Card.Content extra>
+              <p>{profile.status}</p>
+            </Card.Content>
+          </Card>
         </div>
         <div> 
-          <ul>
+          <ul style={{listStyle: "none"}}>
             {posts.map(
-              post => <li>{post.body}</li>
+              post => <Post key={post.id} {...post} addLike={this.addLike} friend_id={this.props.match.params.id}/>
             )}
           </ul>
         </div>
@@ -36,3 +45,4 @@ class ViewProfile extends React.Component {
   }
 }
 export default withRouter(ViewProfile);
+

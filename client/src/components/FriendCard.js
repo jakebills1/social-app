@@ -26,7 +26,7 @@ class FriendCard extends React.Component {
           <Card.Meta>Network: {category}</Card.Meta>
         </Card.Content>
         <Card.Content extra >
-          <Card.Header as="h4">Last Update: </Card.Header>
+          <Card.Header as="h4">Status: </Card.Header>
           <Card.Description>{status}</Card.Description>
         </Card.Content>
         <Card.Content textAlign="center">

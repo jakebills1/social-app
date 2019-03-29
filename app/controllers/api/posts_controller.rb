@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   before_action :set_friend
-  before_action :set_post, only: :show
+  before_action :set_post, only: [:show, :update]
   def index
     render json: @friend.posts
   end
@@ -8,6 +8,13 @@ class Api::PostsController < ApplicationController
   def show
     render json: @post
   end
+
+  def update
+    # binding.pry
+    @post.increment(:likes)
+    render json: @post
+  end
+
   private 
     def set_friend 
       @friend = Friend.find(params[:friend_id])
