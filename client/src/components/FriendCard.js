@@ -31,6 +31,7 @@ class FriendCard extends React.Component {
         </Card.Content>
         <Card.Content textAlign="center">
             <Button onClick={ () =>this.props.history.push(`/friends/${id}`)}>View Profile</Button>
+            <Button>Remove as Friend</Button>
         </Card.Content>
       </Card>
     )

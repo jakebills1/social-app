@@ -17,4 +17,5 @@ class Api::FriendsController < ApplicationController
     @friend = Friend.find(params[:id])
     render json: @friend
   end
+  
 end

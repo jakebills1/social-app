@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
     # select friends where id is in passed ids
     Friend.where("id IN (?)", ids)
   end
+  def self.delete_friend(id, ids)
+    ids = ids.empty? ? [0] : ids
+    
+  end
 end
